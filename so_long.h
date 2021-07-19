@@ -1,27 +1,27 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
-#include "mlx.h"
-#include "./libft/libft.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
+# include "mlx.h"
+# include "./libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdio.h>
 
-#define ESC 53
-#define	X	17
-#define F 	3
-#define A	0
-#define S	1
-#define	W	13
-#define D	2
-#define E	0b01000000
-#define C	0b00100000
-#define P	0b00010000
-#define	Z	0b00000000
-#define V 	0b00000001
-#define G	0x0000FF00
-#define R	0x00FF0000
-#define B	0x00000000
+# define ESC 53
+# define X	17
+# define F 	3
+# define A	0
+# define S	1
+# define W	13
+# define D	2
+# define E	0b01000000
+# define C	0b00100000
+# define P	0b00010000
+# define Z	0b00000000
+# define V 	0b00000001
+# define G	0x0000FF00
+# define R	0x00FF0000
+# define B	0x00000000
 
 struct s_window
 {
@@ -50,11 +50,12 @@ struct s_window
 };
 
 int		get_next_line(int fd, char **line);
-void	ft_grass(struct s_window *m);
+void	ft_image(struct s_window *m);
 void	ft_img_c(struct s_window *m);
 void	ft_img_w(struct s_window *m);
 void	ft_img_p(struct s_window *m);
 void	ft_img_e(struct s_window *m);
+void	ft_struct_init(struct s_window *m);
 int		map_create(struct s_window *m);
 void	ft_check_zmienna(struct s_window *m);
 void	ft_c(struct s_window *m, int v);

@@ -8,7 +8,7 @@ MLX		=	-L /usr/local/lib -lmlx -framework OpenGL -framework Appkit
 LIB		=	-L. -lsolong
 NAME	=	libsolong.a
 
-all:	$(NAME)
+all:	$(NAME) run
 
 %o: %c
 	$(CC) $(FLAGS) -c $< -o $@

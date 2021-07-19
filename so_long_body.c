@@ -1,10 +1,8 @@
 #include "so_long.h"
 
-int	map_create(struct s_window *m) // za duzo linijek
+int	map_create(struct s_window *m)
 {
-	m->w_x = 0;
-	m->w_y = 0;
-	m->h_j = -1;
+	ft_struct_init(m);
 	while (m->map[++m->h_j] != '\0')
 	{
 		if (m->map[m->h_j] == '\n')
@@ -25,8 +23,7 @@ int	map_create(struct s_window *m) // za duzo linijek
 			ft_img_e(m);
 		else if (m->map[m->h_j] == 'W')
 			ft_img_w(m);
-		m->i_i = mlx_xpm_file_to_image(m->mlx_p, m->f, &m->i_h, &m->i_w);
-		mlx_put_image_to_window(m->mlx_p, m->w_p, m->i_i, m->w_x, m->w_y);
+		ft_image(m);
 		m->w_x = m->w_x + m->i_w;
 	}
 	return (1);
@@ -53,10 +50,9 @@ int	ft_landscape(struct s_window *m)
 	return (1);
 }
 
-int	ft_check_de_map(struct s_window *m) // za duzo 1 linijek
+int	ft_check_de_map(struct s_window *m)
 {
-	m->h_j = -1;
-	m->ECP = 0b00000000;
+	ft_struct_init(m);
 	while (m->map[++m->h_j] != '\0')
 	{
 		if (m->map[m->h_j] == '\n' && m->map[m->h_j - 1] != '1'
@@ -75,9 +71,9 @@ int	ft_check_de_map(struct s_window *m) // za duzo 1 linijek
 	if (m->ECP != 112)
 		return (0);
 	m->h_j = m->h_j - 2;
-	while (m->map[m->h_j] != '\n')
+	while (m->map[--m->h_j] != '\n')
 	{
-		if (m->map[m->h_j--] != '1')
+		if (m->map[m->h_j] != '1')
 			return (0);
 	}
 	return (1);
@@ -120,6 +116,7 @@ int	ft_get_ready(struct s_window *m, char *argc)
 			m->h_t++;
 	}	
 	m->h_u = (m->h_i / m->h_t);
+	printf("m->h_u %d\n, m->h_i %d\n, m->h_t %d\n", m->h_u, m->h_i, m->h_t);
 	if (m->h_t < 2 || (m->h_t == m->h_u - 1) || (m->h_u * m->h_t != m->h_i))
 		return (0);
 	m->s_w_x = (m->h_u - 1) * 32;

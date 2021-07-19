@@ -1,5 +1,12 @@
 #include "so_long.h"
 
+void	ft_struct_init(struct s_window *m)
+{
+	m->w_x = 0;
+	m->w_y = 0;
+	m->h_j = -1;
+}
+
 int	main(int argv, char **argc)
 {
 	struct s_window	m;

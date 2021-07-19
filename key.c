@@ -49,7 +49,7 @@ int	deal_key(int key, struct s_window *m)
 		m->h_j = m->x + 1;
 	ft_wsad(m, m->h_j);
 	if (key == W || key == S || key == A || key == D)
-		ft_putnbr_fd(m->map_c++, 1);
+		ft_putnbr_fd(++m->map_c, 1);
 	if (m->map_c >= m->h_i / 5)
 		m->zmienna1 = 1;
 	ft_check_zmienna(m);
