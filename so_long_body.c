@@ -116,7 +116,6 @@ int	ft_get_ready(struct s_window *m, char *argc)
 			m->h_t++;
 	}	
 	m->h_u = (m->h_i / m->h_t);
-	printf("m->h_u %d\n, m->h_i %d\n, m->h_t %d\n", m->h_u, m->h_i, m->h_t);
 	if (m->h_t < 2 || (m->h_t == m->h_u - 1) || (m->h_u * m->h_t != m->h_i))
 		return (0);
 	m->s_w_x = (m->h_u - 1) * 32;
